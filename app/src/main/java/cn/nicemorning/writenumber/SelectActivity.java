@@ -9,24 +9,23 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
-public class MainActivity extends Activity {
-    protected static boolean isPlay = true;
+public class SelectActivity extends Activity {
     private MediaPlayer mediaPlayer;
-    private Button mMusic_btn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        mMusic_btn = (Button) findViewById(R.id.btn_music);
-        playMusic();
+        setContentView(R.layout.activity_select);
+        if (MainActivity.isPlay) {
+            playMusic();
+        }
     }
 
     protected void onRestart() {
         super.onRestart();
-        if (isPlay) {
+        if (MainActivity.isPlay) {
             playMusic();
         }
     }
@@ -48,30 +47,12 @@ public class MainActivity extends Activity {
     }
 
     private void playMusic() {
-        mediaPlayer = MediaPlayer.create(this, R.raw.main_music);
+        mediaPlayer = MediaPlayer.create(this, R.raw.number_music);
         mediaPlayer.setLooping(true);
         mediaPlayer.start();
     }
 
-    public void onPlay(View view) {
-        startActivity(new Intent(MainActivity.this, SelectActivity.class));
-    }
-
-    public void onMusic(View view) {
-        if (isPlay) {
-            if (mediaPlayer != null) {
-                mediaPlayer.stop();
-                mMusic_btn.setBackgroundResource(R.drawable.btn_music2);
-                isPlay = false;
-            }
-        } else {
-            playMusic();
-            mMusic_btn.setBackgroundResource(R.drawable.btn_music1);
-            isPlay = true;
-        }
-    }
-
-    public void onAbout(View view) {
-        startActivity(new Intent(MainActivity.this, AboutActivity.class));
+    public void onOne(View view) {
+        startActivity(new Intent(SelectActivity.this, OneActivity.class));
     }
 }

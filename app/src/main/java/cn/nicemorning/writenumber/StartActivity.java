@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018. this file is create by nicemorning,contact email:oypebook@outlook.com
+ */
+
 package cn.nicemorning.writenumber;
 
 import android.app.Activity;
