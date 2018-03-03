@@ -37,8 +37,6 @@ public class OneActivity extends Activity {
     protected float y1;
     protected float x2;
     protected float y2;
-    protected float x3;
-    protected float y3;
     protected int igvx;
     protected int igvy;
     protected int type = 0;
